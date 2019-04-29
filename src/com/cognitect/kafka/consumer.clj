@@ -3,6 +3,7 @@
             [clojure.walk                  :as walk]
             [clojure.stacktrace            :as stacktrace]
             [io.pedestal.log               :as log]
+            [io.pedestal.interceptor       :as interceptor]
             [io.pedestal.interceptor.chain :as interceptor.chain]
             [com.cognitect.kafka.common    :as common]
             [com.cognitect.kafka.topic     :as topic])
@@ -155,12 +156,13 @@
      :completion     completion}))
 
 (def error-logger
-  {:name  ::error-logger
-   :error (fn [context exception]
-            (log/error :msg       "Error reached front of chain"
-                       :exception exception
-                       :context   context)
-            context)})
+  (interceptor/interceptor
+   {:name  ::error-logger
+    :error (fn [context exception]
+             (log/error :msg       "Error reached front of chain"
+                        :exception exception
+                        :context   context)
+             context)}))
 
 (def default-interceptors
   [error-logger])
