@@ -1,10 +1,10 @@
 {:paths ["resources" "src"]
 
  :deps {org.clojure/clojure              {:mvn/version "1.10.0"}
-        org.clojure/core.async           {:mvn/version "0.2.391"}
-        io.pedestal/pedestal.interceptor {:mvn/version "0.5.1"}
-        io.pedestal/pedestal.route       {:mvn/version "0.5.1"}
-        io.pedestal/pedestal.service     {:mvn/version "0.5.1"}
+        org.clojure/core.async           {:mvn/version "0.4.490"}
+        io.pedestal/pedestal.interceptor {:mvn/version "0.5.5"}
+        io.pedestal/pedestal.route       {:mvn/version "0.5.5"}
+        io.pedestal/pedestal.service     {:mvn/version "0.5.5"}
         cheshire                         {:mvn/version "5.5.0" :exclusions [com.fasterxml.jackson.core/jackson-core]}
         com.cognitect/transit-clj        {:mvn/version "0.8.285"}
         commons-codec                    {:mvn/version "1.10"}
